@@ -1,0 +1,136 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 7/3/22, 9:59 PM
+Description: Ticking player
+
+java.lang.NullPointerException: Registry Object not present: fizzleenchantments:magnetic
+	at java.util.Objects.requireNonNull(Objects.java:334) ~[?:?] {}
+	at net.minecraftforge.registries.RegistryObject.get(RegistryObject.java:204) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23179%23186!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.enchants.MagneticEnchantment.tick(MagneticEnchantment.java:39) ~[%23185!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.EnchantmentEventHandler.playerTickEvents(EnchantmentEventHandler.java:23) ~[%23185!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.__EnchantmentEventHandler_playerTickEvents_PlayerTickEvent.invoke(.dynamic) ~[%23185!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:93) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.event.ForgeEventFactory.onPlayerPreTick(ForgeEventFactory.java:787) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23179%23186!/:?] {re:classloading}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:215) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:446) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:239) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.network.Connection.tick(Connection.java:244) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:880) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:245) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.Objects.requireNonNull(Objects.java:334) ~[?:?] {}
+	at net.minecraftforge.registries.RegistryObject.get(RegistryObject.java:204) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23179%23186!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.enchants.MagneticEnchantment.tick(MagneticEnchantment.java:39) ~[%23185!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.EnchantmentEventHandler.playerTickEvents(EnchantmentEventHandler.java:23) ~[%23185!/:?] {re:classloading}
+	at com.coldspell.fizzleenchantments.enchant.__EnchantmentEventHandler_playerTickEvents_PlayerTickEvent.invoke(.dynamic) ~[%23185!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:93) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-6.0.0.jar%23105!/:?] {}
+	at net.minecraftforge.event.ForgeEventFactory.onPlayerPreTick(ForgeEventFactory.java:787) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23179%23186!/:?] {re:classloading}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:215) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+-- Player being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.server.level.ServerPlayer)
+	Entity ID: 318
+	Entity Name: Dev
+	Entity's Exact location: 10.50, 74.00, 10.50
+	Entity's Block location: World: (10,74,10), Section: (at 10,10,10 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:446) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:239) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.network.Connection.tick(Connection.java:244) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:880) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:245) ~[forge-1.19-41.0.63_mapped_official_1.19-recomp.jar%23180!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19
+	Minecraft Version ID: 1.19
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.1, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 1493286432 bytes (1424 MiB) / 2952790016 bytes (2816 MiB) up to 6404702208 bytes (6108 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz
+	Identifier: Intel64 Family 6 Model 167 Stepping 1
+	Microarchitecture: unknown
+	Frequency (GHz): 2.59
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce GTX 1660 SUPER
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x21c4
+	Graphics card #0 versionInfo: DriverVersion=30.0.14.7280
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.67
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.67
+	Memory slot #1 type: DDR4
+	Memory slot #2 capacity (MB): 8192.00
+	Memory slot #2 clockSpeed (GHz): 3.20
+	Memory slot #2 type: DDR4
+	Virtual memory max (MB): 28013.34
+	Virtual memory used (MB): 17399.63
+	Swap memory total (MB): 3584.00
+	Swap memory used (MB): 123.27
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/318, l='ServerLevel[New World]', x=10.50, y=74.00, z=10.50]]
+	Data Packs: vanilla, mod:forge, mod:fizzleenchantments
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.6+10.0.6+main.f5dee01b
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.0.jar eventbus PLUGINSERVICE 
+		fmlloader-1.19-41.0.63.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.19-41.0.63.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.19-41.0.63.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.19-41.0.63.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.19-41.0.63.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.6.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.6.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.19-41.0.63_mapped_official_1.19-recomp.jar|Minecraft                     |minecraft                     |1.19                |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |41.0.63             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Fizzle Enchantments           |fizzleenchantments            |1.19.1-1.0.0        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 01cf4b8b-e5cb-464f-afa6-38f26d49f334
+	FML: 41.0
+	Forge: net.minecraftforge:41.0.63
